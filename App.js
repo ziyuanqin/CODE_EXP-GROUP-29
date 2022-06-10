@@ -1,30 +1,22 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput} from 'react-native';
-import CountDown from './components/CountDown';
-
-// import CountDown from './components/CountDown.js';
+import { StyleSheet, View, Button } from 'react-native';
+import Header from './components/Header';
 
 export default function App() {
-  const [eventName, setName] = useState();
-  const [numberPpl, setNum] = useState();
-
+  const pressHandler = () => {
+    navigation.navigate('CountDown')
+  }
 
   return (
     <View style={styles.container}>
-
-      <Text>Enter Details:</Text>
-      <TextInput 
-        placeholder='Enter event name' 
-        onChangeText={(val) => setName(val)}
-      />
-      <TextInput 
-        placeholder='Enter number of people' 
-        keyboardType='numeric'
-        onChangeText={(val) => setNum(val)}
-      />
-      <Text>Event Name: {eventName} {"\n"}Number of Pax: {numberPpl}</Text>
-      <StatusBar style="auto" />
+      <View style={styles.header}>
+        <Header/>
+        <View style={styles.content}>
+          <Button title="Go to Count Down" onPress={pressHandler}/>
+        </View>
+      </View>
+    <StatusBar style="auto" />
     </View>
   );
 }
@@ -32,8 +24,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
+  header: {
+    padding: 40,
+  },
+  content: {
+    marginTop: 410
+  }
 });

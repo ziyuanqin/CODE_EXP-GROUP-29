@@ -11,7 +11,7 @@ export default function CountDown() {
     <View style={styles.container}>
       <Text style={styles.header}>- Major Milestone -</Text>
       <Button title="Click me to go to Home" onPress={pressHandler}/>
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </View>
   );
 }

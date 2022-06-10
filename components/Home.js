@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import Header from './components/Header';
 
 export default function Home({ navigation }) {
     const [eventName, setName] = useState();
@@ -12,7 +13,7 @@ export default function Home({ navigation }) {
 
     return (
         <View style={styles.container}>
-
+        <Header/>
         <Text>Enter Details:</Text>
         <TextInput 
             placeholder='Enter event name' 
@@ -35,9 +36,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#fff'
     },
     header: {
         fontSize: '20px',
