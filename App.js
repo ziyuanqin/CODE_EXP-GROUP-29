@@ -1,10 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TextInput} from 'react-native';
+import CountDown from './components/CountDown';
+
+// import CountDown from './components/CountDown.js';
 
 export default function App() {
+  const [eventName, setName] = useState();
+  const [numberPpl, setNum] = useState();
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+
+      <Text>Enter Details:</Text>
+      <TextInput 
+        placeholder='Enter event name' 
+        onChangeText={(val) => setName(val)}
+      />
+      <TextInput 
+        placeholder='Enter number of people' 
+        keyboardType='numeric'
+        onChangeText={(val) => setNum(val)}
+      />
+      <Text>Event Name: {eventName} {"\n"}Number of Pax: {numberPpl}</Text>
       <StatusBar style="auto" />
     </View>
   );
