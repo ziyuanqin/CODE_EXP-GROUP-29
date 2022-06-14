@@ -1,4 +1,7 @@
 import * as React from "react";
+import "react-native-gesture-handler";
+import NewsFeed from "./screens/NewsFeed";
+import RoadMap from "./screens/RoadMap";
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createDrawerNavigator,
@@ -19,6 +22,7 @@ import {
   Divider,
   Icon,
 } from "native-base";
+import CalendarScreen from "./screens/CalendarScreen";
 const Drawer = createDrawerNavigator();
 function Component(props) {
   return (
@@ -151,9 +155,9 @@ function MyDrawer() {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
-        <Drawer.Screen name="Inbox" component={Component} />
-        <Drawer.Screen name="Outbox" component={Component} />
-        <Drawer.Screen name="Favorites" component={Component} />
+        <Drawer.Screen name="Calendar" component={CalendarScreen} />
+        <Drawer.Screen name="NewsFeed" component={NewsFeed} />
+        <Drawer.Screen name="Roadmap" component={RoadMap} />
         <Drawer.Screen name="Archive" component={Component} />
         <Drawer.Screen name="Trash" component={Component} />
         <Drawer.Screen name="Spam" component={Component} />
