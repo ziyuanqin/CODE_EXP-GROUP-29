@@ -44,12 +44,17 @@ export default class Example extends React.Component {
           this.state.items[strTime] = [];
           if (i == 0) {
             this.state.items[strTime].push({
-              name: "Your next ICT cycle starts today!",
+              name: "ICT from 4:00pm to 6:00pm",
               height: 100,
             });
-          } else {
+          } else if (i == 2) {
             this.state.items[strTime].push({
-              name: "ICT",
+              name: "IPPT from 9:30am to 4:00pm",
+              height: 100,
+            });
+          } else if (i == 7) {
+            this.state.items[strTime].push({
+              name: "Platoon meet-up from 9:30am to 4:00pm",
               height: 100,
             });
           }
@@ -76,11 +81,7 @@ export default class Example extends React.Component {
   }
 
   renderEmptyDate() {
-    return (
-      <View style={styles.emptyDate}>
-        <Text>This is empty date!</Text>
-      </View>
-    );
+    return <View style={styles.emptyDate}></View>;
   }
 
   rowHasChanged(r1, r2) {

@@ -23,6 +23,8 @@ import {
   Icon,
 } from "native-base";
 import CalendarScreen from "./screens/CalendarScreen";
+import MoodTracker from "./screens/MoodTracker";
+import Countdown from "./screens/Countdown";
 const Drawer = createDrawerNavigator();
 function Component(props) {
   return (
@@ -36,18 +38,16 @@ function Component(props) {
 
 const getIcon = (screenName) => {
   switch (screenName) {
-    case "Inbox":
-      return "email";
-    case "Outbox":
-      return "send";
-    case "Favorites":
-      return "heart";
-    case "Archive":
-      return "archive";
-    case "Trash":
-      return "trash-can";
-    case "Spam":
-      return "alert-circle";
+    case "Home":
+      return "home";
+    case "Calendar":
+      return "calendar";
+    case "News Feed":
+      return "newspaper";
+    case "Roadmap":
+      return "map-marker-path";
+    case "Mood Tracker":
+      return "sticker-emoji";
     default:
       return undefined;
   }
@@ -59,10 +59,7 @@ function CustomDrawerContent(props) {
       <VStack space="6" my="2" mx="1">
         <Box px="4">
           <Text bold color="gray.700">
-            Mail
-          </Text>
-          <Text fontSize="14" mt="1" color="gray.500" fontWeight="500">
-            john_doe@gmail.com
+            Hello John!
           </Text>
         </Box>
         <VStack divider={<Divider />} space="4">
@@ -101,49 +98,6 @@ function CustomDrawerContent(props) {
               </Pressable>
             ))}
           </VStack>
-          <VStack space="5">
-            <Text fontWeight="500" fontSize="14" px="5" color="gray.500">
-              Labels
-            </Text>
-            <VStack space="3">
-              <Pressable px="5" py="3">
-                <HStack space="7" alignItems="center">
-                  <Icon
-                    color="gray.500"
-                    size="5"
-                    as={<MaterialCommunityIcons name="bookmark" />}
-                  />
-                  <Text color="gray.700" fontWeight="500">
-                    Family
-                  </Text>
-                </HStack>
-              </Pressable>
-              <Pressable px="5" py="2">
-                <HStack space="7" alignItems="center">
-                  <Icon
-                    color="gray.500"
-                    size="5"
-                    as={<MaterialCommunityIcons name="bookmark" />}
-                  />
-                  <Text color="gray.700" fontWeight="500">
-                    Friends
-                  </Text>
-                </HStack>
-              </Pressable>
-              <Pressable px="5" py="3">
-                <HStack space="7" alignItems="center">
-                  <Icon
-                    color="gray.500"
-                    size="5"
-                    as={<MaterialCommunityIcons name="bookmark" />}
-                  />
-                  <Text fontWeight="500" color="gray.700">
-                    Work
-                  </Text>
-                </HStack>
-              </Pressable>
-            </VStack>
-          </VStack>
         </VStack>
       </VStack>
     </DrawerContentScrollView>
@@ -155,12 +109,11 @@ function MyDrawer() {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
+        <Drawer.Screen name="Home" component={Countdown} />
         <Drawer.Screen name="Calendar" component={CalendarScreen} />
-        <Drawer.Screen name="NewsFeed" component={NewsFeed} />
+        <Drawer.Screen name="News Feed" component={NewsFeed} />
         <Drawer.Screen name="Roadmap" component={RoadMap} />
-        <Drawer.Screen name="Archive" component={Component} />
-        <Drawer.Screen name="Trash" component={Component} />
-        <Drawer.Screen name="Spam" component={Component} />
+        <Drawer.Screen name="Mood Tracker" component={MoodTracker} />
       </Drawer.Navigator>
     </Box>
   );
